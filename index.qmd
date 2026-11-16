@@ -1,0 +1,102 @@
+---
+title: "Fact or Fiction: Are U.S. Developers the Highest Earners?"
+subtitle: "Comparing Salary between the U.S., U.K. and Switzerland"
+author: |
+  Amelia Wingard<br>
+  <https://www.linkedin.com/in/amelia-wingard-03976172/>
+
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+
+# U.S. Developers Lead the Pay Pack
+```{r}
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(tidyr)
+
+df <- read.csv("so_developers_2024.csv")
+df <- df |> filter(country %in% c("United States", "Switzerland", "United Kingdom")) |> 
+            mutate(exp_group = case_when(
+              years_code_pro < 5 ~ "0-4 years",
+              years_code_pro >= 5 & years_code_pro < 15 ~ "5-14 years",
+              years_code_pro >=15 ~ "15+ years"
+              )) |>
+            filter(years_code_pro <= 40) |>
+            drop_na(salary_usd) |> 
+            mutate(salary_k = salary_usd / 1000) 
+
+p <- ggplot(df, aes(x = years_code_pro, y = salary_k, color = country)) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
+  labs(
+    x = "Years of Professional Coding Experience",
+    y = "Salary ($K USD)",
+    color = "Country"
+  ) +
+  theme_minimal()
+ggplotly(p)
+```
+
+<div style="margin-bottom: 50px;"></div>
+
+```{r}
+salary_avg <- df |>
+  group_by(ed_level, country) %>%
+  summarise(
+    avg_salary = mean(salary_k, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+df$ed_level <- factor(
+  df$ed_level,
+  levels = c(
+    "Primary/elementary school",
+    "Secondary school (e.g. American high school, German Realschule or Gymnasium, etc.)",
+    "Associate degree (A.A., A.S., etc.)",
+    "Some college/university study without earning a degree",
+    "Bachelor’s degree (B.A., B.S., B.Eng., etc.)", 
+    "Master’s degree (M.A., M.S., M.Eng., MBA, etc.)",
+    "Professional degree (JD, MD, Ph.D, Ed.D, etc.)",
+    "Something else"
+  )
+)
+
+p <- ggplot(salary_avg, aes(x = ed_level, y = avg_salary, fill = country)) +
+  geom_col(width = 0.65, position = "dodge") +
+  labs(
+    title = "Average Salary by Education Level and Country",
+    x = "Highest Level of Education",
+    y = "Average Salary ($K USD)",
+    fill = "Country"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(
+      angle = 45,
+      hjust = 1,
+      size = 9
+    )
+  )
+
+ggplotly(p, width = 800, height = 800)
+```
+
+## All Fact and No Fiction: U.S. Developers Earn More
+
+U.S. developers consistently earn more than their counterparts in the UK and Switzerland. In looking at starting salaries, U.S. developers earned approximately 1.41 times more than Swiss developers and 1.59 times more than U.K. developers with an average starting salary at approximately $125K. These differences persist even after accounting for developers' professional coding experience and educational backgrounds.
+
+## U.S. Developers earn more, but do they have a higher take-home pay?
+
+Although developers in the U.S. appear to earn higher salaries, this does not necessarily mean they take home more money. Taxes, living expenses, healthcare, and retirement contributions all affect how much money someone actually has left after deductions. For example, the U.S. has higher income taxes than Switzerland but generally lower living costs than some other countries, depending on the location. The U.K. also has lower average developer salaries, but its public healthcare system means employees do not have to pay for private health insurance in the same way they do in Switzerland, where private health insurance is mandatory.
+
+Ultimately, salary alone does not tell the whole story. A higher salary does not automatically translate into greater purchasing power or more disposable income. If I were conducting this analysis again, I would also compare average take-home pay and cost of living to get a more accurate picture of how developers' earnings compare across the three countries.
+
+### Credit: 
+
+Amelia Wingard (https://www.linkedin.com/in/amelia-wingard-03976172/) <br>
+Data: Stack Overflow 2024 Developer Survey (ODbL) <br>
+Project for DSAN 5100, Georgetown University M.S. in Data Science & Analytics.
