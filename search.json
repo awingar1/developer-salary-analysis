@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Fact or Fiction: Are U.S. Developers the Highest Earners?",
+    "section": "",
+    "text": "U.S. developers consistently earn more than their counterparts in the UK and Switzerland. In looking at starting salaries, U.S. developers earned approximately 1.41 times more than Swiss developers and 1.59 times more than U.K. developers with an average starting salary at approximately $125K. These differences persist even after accounting for developers’ professional coding experience and educational backgrounds.\n\n\n\nAlthough developers in the U.S. appear to earn higher salaries, this does not necessarily mean they take home more money. Taxes, living expenses, healthcare, and retirement contributions all affect how much money someone actually has left after deductions. For example, the U.S. has higher income taxes than Switzerland but generally lower living costs than some other countries, depending on the location. The U.K. also has lower average developer salaries, but its public healthcare system means employees do not have to pay for private health insurance in the same way they do in Switzerland, where private health insurance is mandatory.\nUltimately, salary alone does not tell the whole story. A higher salary does not automatically translate into greater purchasing power or more disposable income. If I were conducting this analysis again, I would also compare average take-home pay and cost of living to get a more accurate picture of how developers’ earnings compare across the three countries.\n\n\nAmelia Wingard (https://www.linkedin.com/in/amelia-wingard-03976172/)  Data: Stack Overflow 2024 Developer Survey (ODbL)  Project for DSAN 5100, Georgetown University M.S. in Data Science & Analytics."
+  },
+  {
+    "objectID": "index.html#all-fact-and-no-fiction-u.s.-developers-earn-more",
+    "href": "index.html#all-fact-and-no-fiction-u.s.-developers-earn-more",
+    "title": "Fact or Fiction: Are U.S. Developers the Highest Earners?",
+    "section": "",
+    "text": "U.S. developers consistently earn more than their counterparts in the UK and Switzerland. In looking at starting salaries, U.S. developers earned approximately 1.41 times more than Swiss developers and 1.59 times more than U.K. developers with an average starting salary at approximately $125K. These differences persist even after accounting for developers’ professional coding experience and educational backgrounds."
+  },
+  {
+    "objectID": "index.html#u.s.-developers-earn-more-but-do-they-have-a-higher-take-home-pay",
+    "href": "index.html#u.s.-developers-earn-more-but-do-they-have-a-higher-take-home-pay",
+    "title": "Fact or Fiction: Are U.S. Developers the Highest Earners?",
+    "section": "",
+    "text": "Although developers in the U.S. appear to earn higher salaries, this does not necessarily mean they take home more money. Taxes, living expenses, healthcare, and retirement contributions all affect how much money someone actually has left after deductions. For example, the U.S. has higher income taxes than Switzerland but generally lower living costs than some other countries, depending on the location. The U.K. also has lower average developer salaries, but its public healthcare system means employees do not have to pay for private health insurance in the same way they do in Switzerland, where private health insurance is mandatory.\nUltimately, salary alone does not tell the whole story. A higher salary does not automatically translate into greater purchasing power or more disposable income. If I were conducting this analysis again, I would also compare average take-home pay and cost of living to get a more accurate picture of how developers’ earnings compare across the three countries.\n\n\nAmelia Wingard (https://www.linkedin.com/in/amelia-wingard-03976172/)  Data: Stack Overflow 2024 Developer Survey (ODbL)  Project for DSAN 5100, Georgetown University M.S. in Data Science & Analytics."
+  }
+]
